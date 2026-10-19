@@ -27,6 +27,93 @@ drawings:
 
 <div class="absolute bottom-8 left-8 text-sm">Emma Smith - 2026-10-20</div>
 
+
+---
+layout: default
+---
+
+<IconTitle icon="ferris_thinking">Confidence contributing to CPython</IconTitle>
+
+<SurveyCharts kind="confidence" />
+
+<!--
+5:45–6:20 · 35 seconds
+
+These are 36 responses from CPython core team members. The questions ask
+about confidence contributing to CPython, rather than general proficiency
+in a language. The Rust question specifically assumes a PyO3-like Rust API.
+
+Both charts use the same response-count axis and show every rating from
+1 to 5. C has 25 ratings of 4 or 5; Rust has 9. These are self-reported
+ratings from respondents, not an assessment of the whole core team.
+
+The CSV does not include verbal scale anchors, so the charts retain the
+numeric ratings. The source questions and aggregate counts are saved with
+the deck. No individual feedback is quoted here.
+-->
+
+---
+layout: default
+---
+
+<IconTitle icon="ferris_smile">Interest in contributing in Rust</IconTitle>
+
+<SurveyCharts kind="interest" />
+
+<!--
+6:20–6:55 · 35 seconds
+
+This is a separate question to the same 36 core team respondents:
+"I am interested in contributing to CPython in Rust."
+
+The full distribution is 2, 4, 11, 8 and 11 responses at ratings 1 through 5.
+Nineteen respondents rated it 4 or 5, about 53 percent. Eleven chose 3 and
+six chose 1 or 2. The CSV does not retain verbal scale labels, so we show
+numeric ratings rather than inventing agreement categories.
+
+Interest and confidence are different questions. This is useful context
+for discussing what documentation, examples and review support a Rust API
+would need; it is not a vote on adopting this design.
+-->
+
+---
+layout: default
+---
+
+<IconTitle icon="ferris_thinking">Managing Rust dependencies</IconTitle>
+
+<div class="takeaway dependency-policy"><b>Proposed policy:</b> all new dependencies must be reviewed before inclusion. All dependency sources will be vendored by default.</div>
+
+<div class="card dependency-criteria">
+  <h3>Criteria for new dependencies</h3>
+  <ol>
+    <li><b>Tiered platforms:</b> must support every tiered platform or provide a portable fallback.</li>
+    <li><b>Other platforms:</b> should not substantially narrow CPython’s platform support.</li>
+    <li><b>Dependency footprint:</b> should have few required dependencies, including transitive crates.</li>
+    <li><b>Build time:</b> should not significantly slow CPython’s builds.</li>
+    <li><b>Build integration:</b> should be practical on each platform; consult platform maintainers.</li>
+  </ol>
+</div>
+
+<!--
+6:55–7:40 · 45 seconds
+
+One concern is that a small Rust dependency could bring in a large required
+dependency tree and increase build or maintenance costs.
+
+The proposal is to review new dependencies before adding them and vendor
+all dependency sources by default. Review should include required
+transitive crates and the features we enable, not just the direct entries
+in Cargo.toml. Vendoring is the default source-distribution policy; the
+acceptance criteria still apply to each addition.
+
+A dependency must work on every tiered platform, directly or through a
+portable fallback. We should also preserve broad support outside those
+platforms, keep the required dependency tree small, and avoid a significant
+build-time penalty. Build integration must be practical for each platform,
+so consult platform maintainers before settling on a dependency.
+-->
+
 ---
 layout: default
 ---
@@ -123,115 +210,11 @@ What evidence would make the maintenance and performance cost acceptable?
 -->
 
 ---
-layout: default
+layout: center
 ---
 
-<IconTitle icon="ferris_thinking">Confidence contributing to CPython</IconTitle>
+<IconTitle icon="ferris_question">Let's discuss!</IconTitle>
 
-<SurveyCharts kind="confidence" />
-
-<!--
-5:45–6:20 · 35 seconds
-
-These are 36 responses from CPython core team members. The questions ask
-about confidence contributing to CPython, rather than general proficiency
-in a language. The Rust question specifically assumes a PyO3-like Rust API.
-
-Both charts use the same response-count axis and show every rating from
-1 to 5. C has 25 ratings of 4 or 5; Rust has 9. These are self-reported
-ratings from respondents, not an assessment of the whole core team.
-
-The CSV does not include verbal scale anchors, so the charts retain the
-numeric ratings. The source questions and aggregate counts are saved with
-the deck. No individual feedback is quoted here.
--->
-
----
-layout: default
----
-
-<IconTitle icon="ferris_smile">Interest in contributing in Rust</IconTitle>
-
-<SurveyCharts kind="interest" />
-
-<!--
-6:20–6:55 · 35 seconds
-
-This is a separate question to the same 36 core team respondents:
-"I am interested in contributing to CPython in Rust."
-
-The full distribution is 2, 4, 11, 8 and 11 responses at ratings 1 through 5.
-Nineteen respondents rated it 4 or 5, about 53 percent. Eleven chose 3 and
-six chose 1 or 2. The CSV does not retain verbal scale labels, so we show
-numeric ratings rather than inventing agreement categories.
-
-Interest and confidence are different questions. This is useful context
-for discussing what documentation, examples and review support a Rust API
-would need; it is not a vote on adopting this design.
--->
-
----
-layout: default
----
-
-<IconTitle icon="ferris_thinking">Managing Rust dependencies</IconTitle>
-
-<div class="takeaway dependency-policy"><b>Proposed policy:</b> all new dependencies must be reviewed before inclusion. All dependency sources will be vendored by default.</div>
-
-<div class="card dependency-criteria">
-  <h3>Criteria for new dependencies</h3>
-  <ol>
-    <li><b>Tiered platforms:</b> must support every tiered platform or provide a portable fallback.</li>
-    <li><b>Other platforms:</b> should not substantially narrow CPython’s platform support.</li>
-    <li><b>Dependency footprint:</b> should have few required dependencies, including transitive crates.</li>
-    <li><b>Build time:</b> should not significantly slow CPython’s builds.</li>
-    <li><b>Build integration:</b> should be practical on each platform; consult platform maintainers.</li>
-  </ol>
-</div>
-
-<!--
-6:55–7:40 · 45 seconds
-
-One concern is that a small Rust dependency could bring in a large required
-dependency tree and increase build or maintenance costs.
-
-The proposal is to review new dependencies before adding them and vendor
-all dependency sources by default. Review should include required
-transitive crates and the features we enable, not just the direct entries
-in Cargo.toml. Vendoring is the default source-distribution policy; the
-acceptance criteria still apply to each addition.
-
-A dependency must work on every tiered platform, directly or through a
-portable fallback. We should also preserve broad support outside those
-platforms, keep the required dependency tree small, and avoid a significant
-build-time penalty. Build integration must be practical for each platform,
-so consult platform maintainers before settling on a dependency.
--->
-
----
-layout: default
----
-
-<IconTitle icon="ferris_question">Topics for discussion</IconTitle>
-
-<div class="question-grid">
-  <div class="card">
-    <h3>1. API design</h3>
-    <p>Any thoughts, questions, or ideas for the new Rust API?</p>
-  </div>
-  <div class="card">
-    <h3>2. Making Rust work for contributors</h3>
-    <p>While there is a lack of confidence in contributing to CPython in Rust, there is significant interest.</p>
-  </div>
-  <div class="card">
-    <h3>3. Dependency management</h3>
-    <p>Do our rules for introducing and auditing dependencies make sense?</p>
-  </div>
-  <div class="card">
-    <h3>4. Platform support</h3>
-    <p>Where do we draw the line on platform support? Obviously tiered platforms must be supported, but what about other platforms?</p>
-  </div>
-</div>
 
 <div class="flex items-center gap-5 mt-8">
     <QRCode value="https://github.com/Rust-for-CPython/cpython/pull/45" :size="104" :margin="4" render-as="svg" aria-label="QR code for the design pull request" />
@@ -240,29 +223,3 @@ layout: default
       <a href="https://github.com/Rust-for-CPython/cpython/pull/45">Rust-for-CPython/cpython#45</a>
     </div>
   </div>
-
-<!--
-7:40–8:55 · 75 seconds
-
-These are the issues I most want to explore with the group, in this order.
-
-First, buffers. Keeping memory alive is not enough to justify a Rust slice:
-another thread may still mutate a writable exporter. We need to decide
-which copying, locking or exporter guarantees are realistic.
-
-Second, panic handling. The current design uses panic=unwind and catches
-ordinary function panics as SystemError. Traversal panics and some failed
-cleanup paths must abort because continuing could violate safety. Which
-boundaries and recovery policies should we support?
-
-Third, dependency management. We have proposed review before adding new
-dependencies, vendored sources by default, and criteria for portability,
-dependency count, build time and integration. Are these criteria sufficient,
-and how should we review changes to the required dependency graph?
-
-Fourth, platform support. Tiered platforms must work, with a portable
-fallback if necessary. How much support should we promise beyond them?
-Consult platform maintainers early about the practical build implications.
-This is an invitation to explore the design, rather than a list of decisions
-to settle during the introduction.
--->
