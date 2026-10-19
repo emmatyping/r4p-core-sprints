@@ -1,0 +1,57 @@
+{
+  "source": "CPython Core Team Rust Survey 2026.csv",
+  "population": "CPython core team members who responded",
+  "respondent_count": 36,
+  "rating_values": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "verbal_scale_anchors": null,
+  "questions": {
+    "c": {
+      "question": "How confident are you contributing to CPython in C?",
+      "response_count": 36,
+      "missing_count": 0,
+      "counts": [
+        1,
+        4,
+        6,
+        10,
+        15
+      ],
+      "rated_4_or_5": 25,
+      "rated_4_or_5_percent": 69.4
+    },
+    "rust": {
+      "question": "How confident would you be contributing to CPython in Rust, assuming a PyO3-like Rust API?",
+      "response_count": 36,
+      "missing_count": 0,
+      "counts": [
+        4,
+        12,
+        11,
+        6,
+        3
+      ],
+      "rated_4_or_5": 9,
+      "rated_4_or_5_percent": 25.0
+    },
+    "interest": {
+      "question": "I am interested in contributing to CPython in Rust.",
+      "response_count": 36,
+      "missing_count": 0,
+      "counts": [
+        2,
+        4,
+        11,
+        8,
+        11
+      ],
+      "rated_4_or_5": 19,
+      "rated_4_or_5_percent": 52.8
+    }
+  }
+}

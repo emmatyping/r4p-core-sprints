@@ -1,0 +1,484 @@
+:root {
+  --slidev-code-font-size: 0.8em;
+  --slidev-code-line-height: 1.5em;
+  --accent: #f97316;
+  --accent-soft: #ffedd5;
+  --ink: #431407;
+}
+
+.mermaid {
+  display: flex;
+  justify-content: center;
+}
+
+/* Slide title with a Ferris icon */
+.title-icon {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.4rem;
+}
+
+.title-icon img {
+  width: 3.4rem;
+  height: 3.4rem;
+}
+
+.title-icon h1 {
+  margin: 0 !important;
+}
+
+/* A question for the room */
+.ask {
+  margin-top: 1.2rem;
+  padding: 0.6rem 1.1rem;
+  border-left: 5px solid var(--accent);
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 0 12px 12px 0;
+  font-size: 1.1em;
+  font-style: italic;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 14px;
+  padding: 0.9rem 1.2rem;
+  box-shadow: 0 1px 3px rgba(124, 45, 18, 0.12);
+}
+
+.card h3 {
+  margin: 0 0 0.3rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.chip {
+  display: inline-block;
+  margin: 0.2rem 0.15rem;
+  padding: 0.2rem 0.75rem;
+  border: 1px solid #fdba74;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  font-size: 0.9em;
+  white-space: nowrap;
+}
+
+.chip.gone {
+  border: 1px dashed #d6b7a3;
+  background: transparent;
+  color: #a8a29e;
+  text-decoration: line-through;
+}
+
+.muted {
+  opacity: 0.7;
+}
+
+/* Used by deep-dive.md */
+.slidev-layout.dense,
+.slidev-layout .dense {
+  font-size: 0.92em;
+}
+
+.slidev-layout.dense pre,
+.slidev-layout .dense pre {
+  --slidev-code-font-size: 0.7em;
+}
+
+.why {
+  margin-top: 0.8rem;
+  padding: 0.4rem 0.8rem;
+  border-left: 4px solid #f59e0b;
+  border-radius: 0 6px 6px 0;
+  background: rgba(245, 158, 11, 0.08);
+  font-size: 0.9em;
+}
+
+.why::before {
+  content: "Why: ";
+  font-weight: 700;
+  color: #d97706;
+}
+
+/* The short discussion talk; the longer backup deck keeps its own styling. */
+.slidev-layout.talk,
+.slidev-layout.talk-cover,
+.slidev-layout.talk-close {
+  --ink: #6b5b50;
+  --muted-ink: #796959;
+  --accent-ink: #995936;
+  --neversink-bg-color: #fff4e5;
+  --neversink-text-color: var(--ink);
+  --neversink-bg-code-color: #ffead3;
+  --neversink-fg-code-color: var(--accent-ink);
+  color: var(--ink);
+}
+
+.talk h1,
+.talk-cover h1,
+.talk-close h1 {
+  color: #b65d37;
+}
+
+.talk b,
+.talk strong,
+.talk .card h3,
+.talk .bug-table th {
+  font-weight: 600;
+}
+
+.slidev-layout.talk .roadmap-date {
+  color: var(--muted-ink);
+  opacity: 1;
+}
+
+.talk .title-icon {
+  margin-bottom: 1.1rem;
+}
+
+.talk .title-icon h1 {
+  font-size: 1.9rem;
+  line-height: 1.2;
+}
+
+.talk .title-icon img {
+  width: 3rem;
+  height: 3rem;
+  flex: none;
+}
+
+.talk-cover .invitation {
+  font-size: 1.2rem !important;
+  margin-top: 1.2rem;
+}
+
+.talk p {
+  margin: 0.65rem 0;
+  line-height: 1.35;
+}
+
+.talk-columns,
+.question-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.talk .card {
+  padding: 1rem 1.15rem;
+  font-size: 1.2rem;
+  border: 1px solid #f0d9c2;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 4px 0 rgba(124, 45, 18, 0.05);
+}
+
+.talk .card h3 {
+  font-size: 1.25rem;
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
+}
+
+.talk .card h3 + p {
+  margin-top: 0.65rem;
+  opacity: 1;
+}
+
+.talk .card p:last-child {
+  margin-bottom: 0;
+}
+
+.goals {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.talk .goals h3 { margin-bottom: 0; }
+
+.goals > div {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  font-size: 1.22rem;
+}
+
+.goals p {
+  margin: 0;
+}
+
+.goal-number {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+  background: #fed7aa;
+  color: var(--ink);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.goals .detail {
+  font-size: 1.1rem;
+}
+
+.talk .scope-note,
+.capability-footnote {
+  margin-top: 1rem;
+  font-size: 1.05rem;
+  line-height: 1.4;
+  color: var(--muted-ink);
+}
+
+.talk .non-goals {
+  margin-top: 0.9rem;
+  font-size: 1.05rem;
+  color: var(--muted-ink);
+}
+
+.talk .non-goals h3 {
+  color: var(--accent-ink);
+  margin-bottom: 0.35rem;
+}
+
+.talk .non-goals ul {
+  margin: 0;
+  padding-left: 1.2em;
+  list-style: disc;
+}
+
+.talk .non-goals li {
+  margin: 0.15rem 0;
+  line-height: 1.35;
+}
+
+.talk .takeaway {
+  margin-top: 1.2rem;
+  padding: 0.65rem 1rem;
+  border: 1px solid #f0d9c2;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.6);
+  font-size: 1.16rem;
+  line-height: 1.4;
+}
+
+.talk .slide-lead {
+  font-size: 1.3rem;
+  margin: 0 0 0.65rem;
+}
+
+.talk .mermaid {
+  margin: 0.5rem 0;
+}
+
+.talk .mermaid svg {
+  max-width: 100%;
+  max-height: 205px;
+}
+
+.bug-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 1.12rem;
+  line-height: 1.3;
+}
+
+.bug-table th {
+  text-align: left;
+  color: var(--accent-ink, #9a3412);
+  border-bottom: 2px solid #fdba74;
+  padding: 0.4rem 0.75rem;
+}
+
+.bug-table th:first-child {
+  width: 44%;
+}
+
+.bug-table td {
+  vertical-align: top;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #fed7aa;
+}
+
+/* Slide 6 groups use labels as well as color to identify check timing. */
+.error-groups {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.talk .error-group {
+  padding: 0.5rem 1rem;
+  border: 1px solid #f0d9c2;
+  border-radius: 16px;
+}
+
+.error-group--compile { background: #fff9f0; }
+.error-group--runtime { background: #ffecd8; }
+.error-group--mixed { background: #f6d6b5; }
+
+.talk .error-group h3 {
+  margin: 0 0 0.35rem;
+  text-align: right;
+  color: var(--accent-ink);
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.error-columns,
+.error-row {
+  display: grid;
+  grid-template-columns: 44% 1fr;
+  gap: 1.2rem;
+}
+
+.talk .error-columns {
+  padding: 0 1rem;
+  margin-bottom: 0.4rem;
+  color: var(--accent-ink);
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.error-row + .error-row { margin-top: 0.4rem; }
+
+.talk .error-row p {
+  margin: 0;
+  opacity: 1;
+  font-size: 1.05rem;
+  line-height: 1.3;
+}
+
+.question-grid {
+  gap: 0.9rem;
+}
+
+.question-grid .card {
+  padding: 0.8rem 1rem;
+  font-size: 1.12rem;
+}
+
+.question-grid .card h3 {
+  margin-bottom: 0.35rem;
+}
+
+.question-grid p {
+  margin: 0.3rem 0 0.55rem;
+}
+
+.question {
+  color: var(--accent-ink, #9a3412);
+  font-weight: 600;
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+.talk .ask {
+  border: 1px solid #f0d9c2;
+  border-radius: 16px;
+  font-size: 1.16rem;
+  font-style: normal;
+  line-height: 1.35;
+}
+
+.discussion-prompts {
+  margin-top: 1.2rem;
+  font-size: 1.2rem;
+}
+
+.talk .dependency-policy {
+  margin-top: 0;
+  margin-bottom: 0.9rem;
+}
+
+.talk .dependency-criteria { font-size: 1.1rem; }
+
+.talk .dependency-criteria ol {
+  margin: 0;
+  padding-left: 1.4em;
+  list-style: decimal;
+}
+
+.talk .dependency-criteria li {
+  margin: 0.45em 0;
+  padding-left: 0.15em;
+  line-height: 1.35;
+}
+
+.dependency-criteria li::marker { color: var(--accent-ink); font-weight: 600; }
+
+/* Survey charts share one aggregate data source and the deck's warm palette. */
+.talk .survey-meta,
+.talk .survey-statement {
+  margin: 0 0 0.8rem;
+  font-size: 1.12rem;
+  line-height: 1.35;
+}
+
+.talk .survey-meta { color: var(--muted-ink); }
+
+.survey-confidence,
+.survey-interest {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.survey-interest { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+
+.talk .survey-chart {
+  margin: 0;
+  padding: 0.8rem 1rem;
+}
+
+.survey-chart img { display: block; width: 100%; height: auto; }
+
+.survey-chart figcaption {
+  margin-top: 0.2rem;
+  font-size: 1.05rem;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.talk .survey-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.talk .survey-summary h3 { margin-bottom: 0.5rem; }
+.talk .survey-summary p { margin: 0.5rem 0 0; font-size: 1.05rem; }
+.survey-percentage { font-size: 4rem; font-weight: 600; line-height: 1.1; color: var(--accent-ink); }
+
+.talk .survey-footnote {
+  margin: 0.85rem 0 0;
+  color: var(--muted-ink);
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.talk-blank,
+.discussion-blank {
+  position: absolute;
+  inset: 0;
+  padding: 0 !important;
+  background: #000 !important;
+}
+
+/* Capability example: readable code within the rounded, warm slide theme. */
+.capability-example .slidev-code {
+  font-size: 15px !important;
+  line-height: 1.45 !important;
+  border: 1px solid #f0d9c2;
+  border-radius: 16px;
+  padding: 0.9rem 1.1rem !important;
+}
+.talk.capability-example .scope-note {
+  margin-top: 0.8rem;
+  font-size: 1rem;
+}
